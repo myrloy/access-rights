@@ -1,0 +1,604 @@
+/* General formatting & utilities
+   Heading and branding 
+   Content and main structure 
+   Modals
+   Forms
+   Footer
+*/
+
+
+// GENERAL FORMATTING & UTILITIES ----------------------------------------//
+
+html {
+    height: 100%;
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+.hide,
+.hidden {
+    display: none;
+}
+
+.show,
+.shown {
+    display: block;
+}
+
+
+#skip a,
+#skip-nav a {
+    background: black none repeat scroll 0 0;
+    border-bottom: 1px solid black;
+    border-bottom-right-radius: 4px;
+    border-bottom-left-radius: 4px;
+    border-right: 1px solid black;
+    color: white;
+    left: 45%;
+    padding: 8px;
+    position: absolute;
+    top: -48px;
+    transition: top 1s ease-out 0s, background 1s linear 0s;
+    z-index: 100;
+    font-size: 0.9rem;
+}
+
+#skip a:hover,
+#skip-nav a:hover {
+    text-decoration: underline;
+}
+
+#skip a:focus,
+#skip-nav a:focus {
+    background: #000 none repeat scroll 0 0;
+    outline: 0 none;
+    top: 0;
+    transition: top 0.2s ease-in 0s, background 0.5s linear 0s;
+    text-decoration: underline;
+}
+
+
+
+@mixin for-sr {
+    position: absolute !important;
+    height: 1px;
+    width: 1px;
+    overflow: hidden;
+    clip: rect(1px, 1px, 1px, 1px);
+    left: -1900px;
+}
+
+.fineprint {
+    font-size: 0.9rem;
+    color: $dark-gray;
+}
+
+.offscreen {
+    @include for-sr;
+}
+
+.show-for-sr {
+    clip: rect(1px, 1px, 1px, 1px) !important;
+}
+
+@mixin rtalign {
+    @include breakpoint(medium) {
+        text-align: right;
+    }
+}
+
+@mixin inline {
+    display: inline;
+}
+
+@mixin boxyshadow {
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+}
+
+@mixin boxyshadow-lg {
+    box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+}
+
+@mixin boxyshadow-xl {
+    box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+}
+
+@mixin subtle-label {
+    font-size: 0.75rem;
+    text-transform: uppercase;
+    color: $rnuablue;
+}
+
+@mixin focus-light {
+    outline: 2px dotted $white;
+    outline-offset: 2px;
+}
+
+@mixin plainlink {
+    border-bottom: 1px dotted transparent;
+
+}
+
+
+::placeholder {
+    color: $dark-gray;
+    opacity: 1;
+    font-style: italic;
+}
+
+.standout-text {
+    font-size: 1.125rem;
+    font-weight: 600;
+
+}
+
+.needs-input::placeholder {
+    color: #7e0604;
+}
+
+input[type="text"],
+select,
+input[type="textarea"],
+input[type="search"],
+input[type="password"],
+input[type="checkbox"],
+input[type="radio"] {
+    margin-bottom: 0;
+}
+
+.multiselect-clear-icon,
+.multiselect-caret {
+    scale: 1.25;
+}
+
+a:link {
+    border-bottom: 1px dotted $primary-color;
+}
+
+a:hover,
+a:focus {
+    border-bottom-style: solid;
+    color: $primary-dark;
+}
+
+a:focus,
+button:focus,
+.button:focus {
+    outline: 2px dotted $black;
+    outline-offset: 2px;
+}
+
+.button+.button {
+    margin-left: 1rem;
+}
+
+
+a.rev-link {
+    color: $white;
+    border-bottom-color: $white;
+}
+
+a.rev-link:visited {}
+
+a.rev-link:hover,
+a.rev-link:focus {
+    color: $robin-light;
+    border-bottom-color: $robin-light;
+}
+
+a.rev-link:focus {
+    @include focus-light;
+}
+
+// HEADING AND BRANDING --------------------------------------------------//
+
+.userblock {
+
+    font-size: .9rem;
+    padding-bottom: .75rem;
+
+    @include breakpoint(medium) {
+        text-align: right;
+        padding-bottom: 0;
+    }
+}
+
+.syslogo {
+    width: 215px;
+    height: auto;
+    opacity: .8;
+
+}
+
+.prefs {
+    opacity: .8;
+    padding: .25rem;
+
+    &:hover,
+    &:focus {
+        opacity: 1;
+    }
+}
+
+
+.swap {
+    display: none;
+    color: #fff;
+    background-color: #0F054C;
+    padding: 0.3rem 0;
+    font-weight: 700;
+
+    form {
+        margin: 0;
+        display: inline-block;
+    }
+
+    label {
+        color: #fff;
+    }
+
+    label,
+    input[type="text"] {
+        display: inline-block;
+    }
+
+    input[type="text"] {
+        max-width: 140px;
+        margin: 0 6px;
+
+        &:focus {
+            border-color: $raspberry-light;
+        }
+    }
+
+    .swap-btn {
+        font-size: 0.8rem;
+        height: 2.4375rem;
+        background-color: $raspberry-dark;
+    }
+
+    .swap-btn:focus,
+    .swap-btn:hover {
+        background-color: $hotpink-dark;
+    }
+
+    .button:focus {
+        @include focus-light;
+    }
+
+    .otherID {
+        display: inline-block;
+        padding: 0 1rem 0 0;
+    }
+
+    .revertID {
+        color: $sky;
+        font-size: 0.85rem;
+    }
+
+    .revertID:hover,
+    .revertID:focus {
+        color: $robin;
+        text-decoration: underline;
+    }
+}
+
+.topbrand {
+    @include xy-grid-container;
+    padding-top: 20px;
+
+}
+
+.appname {
+    padding-bottom: 1rem;
+
+    a {
+        @include plainlink;
+        display: inline-block;
+    }
+
+    a:hover,
+    a:focus {
+        border-bottom: 1px solid $primary-dark;
+    }
+}
+
+.navbar {
+    background-color: $ground;
+
+}
+
+nav {
+    @include xy-grid-container;
+    font-size: .85rem;
+    padding: .6rem 0;
+}
+
+.log-btn {
+    background-color: $smoked;
+    color: $white;
+    font-size: .9rem;
+
+    &:focus,
+    &:hover {
+        background-color: $deep;
+    }
+}
+
+.pulldown-look {
+    display: inline-block;
+    padding: .45rem 1.5rem .45rem .75rem;
+    border: 1px solid $teal-light;
+    border-radius: 4px;
+    font-size: .9rem;
+    width: auto;
+    max-width: 220px;
+    margin: 0 .5rem;
+    color: #2A84AC;
+}
+
+// CONTENT AND MAIN STRUCTURE --------------------------------------------//
+
+main {
+    padding: 2rem 0;
+    flex: 1 0 auto;
+    background-color: $wash;
+}
+
+main:focus {
+    outline: none;
+}
+
+.access-list {
+    border: 1px solid $medium-gray;
+    padding: 1rem;
+}
+
+.bodycard {
+    background-color: #fff;
+    padding: 1.25rem 1.5rem;
+    border: 1px solid $ground;
+    border-radius: 4px;
+}
+
+
+.searchbar {
+    background-image: radial-gradient(circle at 12% 33%, #395B8F 0%, #213E69 39%, #091F41 81%);
+    color: #fff;
+    padding: 1rem 1.25rem;
+    border-radius: 4px;
+    margin-bottom: 2rem;
+
+    label {
+        color: #fff;
+        font-size: 1.1rem;
+    }
+
+    .cell {
+        align-self: center;
+    }
+
+    .input-group {
+        margin-bottom: 0;
+    }
+
+    .util-btn:focus {
+        @include focus-light();
+    }
+
+    .error-ov {
+        color: $alert-color-light;
+
+        font-weight: 500;
+    }
+}
+
+// MODALS ----------------------------------------------------------------//
+
+// FORMS -----------------------------------------------------------------//
+
+input[type="text"],
+select,
+input[type="textarea"],
+input[type="search"],
+input[type="password"],
+input[type="checkbox"],
+input[type="radio"] {
+    margin-bottom: 0;
+}
+
+
+.input-lg {
+    max-width: 18rem;
+    display: inline-block;
+}
+
+
+.main-lookup {
+
+
+    input[type=text] {
+        padding: .6rem .8rem;
+        height: 3rem;
+        border-top-right-radius: 0;
+        border-bottom-right-radius: 0;
+        border-color: $robin-light;
+
+        &:focus {
+            border-color: $robin;
+        }
+
+        &.error {
+            border-color: $alert-color;
+            border-width: 2px;
+        }
+    }
+
+    label {
+        margin-right: .5rem;
+        align-self: center;
+    }
+
+
+}
+
+.util-btn {
+    background-color: $robin-light;
+    color: $inky;
+
+    &:hover,
+    &:focus {
+        background-color: $robin-dark;
+    }
+}
+
+.search-label {
+    @include breakpoint(medium) {
+        padding-right: .2rem;
+    }
+
+    @include breakpoint(large) {
+        text-align: center;
+    }
+
+
+    label {
+        line-height: 1.2;
+        padding-bottom: .25rem;
+    }
+}
+
+.multi-search {
+    padding-top: 1.5rem;
+
+
+    @include breakpoint(medium) {
+        text-align: center;
+        padding-top: 0;
+        padding-left: 1rem;
+    }
+
+}
+
+.error {
+
+    label {
+        font-weight: 700;
+        color: $alert-color;
+    }
+
+    input[type=text],
+    input[type=number],
+    textarea {
+        border-color: $alert-color;
+    }
+
+}
+
+.error-ov {
+    font-weight: 700;
+    color: $alert-color;
+}
+
+
+
+// FOOTER  ---------------------------------------------------------------//
+
+.copyright {
+    background-color: $white;
+    color: $dark-gray;
+    font-size: 0.85rem;
+    padding: 0.85rem 0;
+    padding: 1rem 0;
+}
+
+.helpbar {
+    font-size: 1rem;
+    padding: 1.75rem 0 1.5rem 0;
+    background-color: $ground;
+}
+
+.helpbar-links {
+    margin: 0;
+    padding: 0;
+    list-style-type: none;
+
+    li {
+        margin: 0 1rem 0 0;
+        padding: 0;
+        display: inline-block;
+
+        @include breakpoint(medium) {
+            margin-right: 3rem;
+        }
+    }
+
+    li:last-of-type {
+        margin-right: 0;
+    }
+
+    a:link {
+        @include plainlink();
+        display: inline-block;
+        padding: .3rem 0 .3rem 32px;
+
+    }
+
+    a:link span,
+    a:visited span {
+        border-bottom: 1px dotted $primary-color;
+        opacity: 1;
+    }
+
+    a:hover span,
+    a:focus span {
+        border-bottom: 1px solid $primary-dark;
+    }
+
+    .help-center {
+
+        background-image: url(../img/help-center-off.svg);
+
+        background-position: left center;
+        background-repeat: no-repeat;
+
+        &:hover,
+        &:focus,
+        &:has(a:focus) {
+            background-image: url(../img/help-center-on.svg);
+        }
+    }
+
+    .ticket {
+
+        background-image: url(../img/ticket-off.svg);
+
+        background-position: left center;
+        background-repeat: no-repeat;
+
+        &:hover,
+        &:focus,
+        &:has(a:focus) {
+            background-image: url(../img/ticket-on.svg);
+        }
+    }
+
+    .lookup {
+
+        background-image: url(../img/lookup-off.svg);
+
+        background-position: left center;
+        background-repeat: no-repeat;
+
+        &:hover,
+        &:focus,
+        &:has(a:focus) {
+            background-image: url(../img/lookup-on.svg);
+        }
+    }
+
+}
