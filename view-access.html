@@ -1,0 +1,113 @@
+<!doctype html>
+<html class="no-js" lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>University of Illinois System Access</title>
+    <link rel="stylesheet" href="css/app.css">
+</head>
+
+<body>
+    <aside id="skip"><a href="#main">skip to content</a></aside>
+    <header>
+        <div class="grid-container">
+            <div class="grid-x">
+                <div class="appname cell medium-6">Systems Access </div>
+                <div class="cell medium-6 userblock">{Username here} | Logout</div>
+            </div>
+
+            <nav>
+                navigation
+            </nav>
+        </div>
+
+    </header>
+
+
+    <main id="main">
+        <div class="grid-container">
+
+            <div class="cell">
+
+                <h1>Profile returned for "{searched term}":</h1>
+                <p>Firstname Lastname</p>
+
+                <ul>
+                    <li>Title, Department</li>
+                    <li>NetID, UIN</li>
+                    <li>Show if this is an application(?) account (ie, a non-person)</li>
+                    <li>(If it's not a person) Account owner: {netID} </li>
+                    <li>Previous NetID: (if any)</li>
+                </ul>
+
+                <!-- OR, in case of no matches -->
+                <!-- <p>There is no profile for "{searched term}." Check your input and try again: </p>
+                <form>
+                <div class="input-group main-lookup">
+                    <label for="lookup">View access for: </label>
+                    <input type="text" id="lookup" placeholder="UIN or NetID" class="input-lg inlined">
+                    <div class="input-group-button">
+                        <input type="submit" class="button util-btn" value="Look up">
+                    </div>
+                </div>
+                </form> -->
+
+                <section class="access-list">
+                    <h2>Current access by functional area</h2>
+
+                    <h3>Human Resources</h3>
+                    <ul>
+                        <li>Just dump the list items here </li>
+                    </ul>
+
+                    <h3>Student Information </h3>
+                    <ul>
+                        <li>We don't know what these look like yet. </li>
+                        <li>Probably will look like breadcrumbs: area > category > app > permission > detail</li>
+                        <li>But it depends on how they are organized, which is in progress</li>
+                        <li>Will probably let user select way to order these; default can be by functional area</li>
+                    </ul>
+                </section>
+            </div>
+
+
+        </div>
+
+
+    </main>
+
+    <footer>
+        <div class="helpbar">
+            <div class="grid-container">
+                <div class="grid-x grid-padding-x">
+                    <div class="large-12 cell">
+                        USC Help Center | USC Lookup | File a support ticket
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="copyright">
+            <div class="grid-container">
+                <div class="grid-x grid-padding-x">
+                    <div class="large-12 cell">
+                        &copy;
+                        <script>document.write(new Date().getFullYear());
+                        </script> University of Illinois Board of Trustees | <a
+                            href="https://www.vpaa.uillinois.edu/resources/web_privacy">Privacy policy</a>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+
+    </footer>
+    <!-- 
+    <script src="node_modules/jquery/dist/jquery.js"></script>
+    <script src="node_modules/what-input/dist/what-input.js"></script>
+    <script src="node_modules/foundation-sites/dist/js/foundation.js"></script>-->
+    <script src="js/app.js"></script>
+</body>
+
+</html>
